@@ -37,17 +37,17 @@
             temp = this;
             if (previous != temp) {
                 if (previous) {
-                    swapeImage(previous, "active.png", "normal.png");
-                    swapeImage(this, "normal.png", "active.png");
+                    swapImage(previous, "active.png", "normal.png");
+                    swapImage(this, "normal.png", "active.png");
 
                 } else {
-                    swapeImage(this, "normal.png", "active.png");
+                    swapImage(this, "normal.png", "active.png");
                 }
                 previous = this;
             }
         });
 
-        function swapeImage(object, firstImageTxt, secondImageTxt) {
+        function swapImage(object, firstImageTxt, secondImageTxt) {
             var temp = $(object).find('img');
             var src = temp.attr("src").replace(firstImageTxt, secondImageTxt);
             temp.attr("src", src);
