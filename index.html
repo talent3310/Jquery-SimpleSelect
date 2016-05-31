@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BootStrap Accordion/Collapse with Toggle Icon</title>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body>
+    <div class="icons">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="home-link" title="Home"><img id="aaa" src="image/menu_news_normal.png" /></div>
+                    </td>
+                    <td>
+                        <div href="" class="chats-link" title="Chats"><img src="image/menu_chat_normal.png" /></div>
+                    </td>
+                    <td>
+                        <div href="" class="board-link" title="Team Board"><img src="image/menu_schedule_normal.png" /></div>
+                    </td>
+                    <td>
+                        <div class="home-link" title="Home"><img id="aaa" src="image/menu_team_normal.png" /></div>
+                    </td>
+                    <td>
+                        <div href="" class="chats-link" title="Chats"><img src="image/menu_me_normal.png" /></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+    $(document).ready(function() {
+        var previous = null;
+        var temp = null;
+        $('.icons table tr td div').click(function(e) {
+            temp = this;
+            if (previous != temp) {
+                if (previous) {
+                    swapeImage(previous, "active.png", "normal.png");
+                    swapeImage(this, "normal.png", "active.png");
+
+                } else {
+                    swapeImage(this, "normal.png", "active.png");
+                }
+                previous = this;
+            }
+        });
+
+        function swapeImage(object, firstImageTxt, secondImageTxt) {
+            var temp = $(object).find('img');
+            var src = temp.attr("src").replace(firstImageTxt, secondImageTxt);
+            temp.attr("src", src);
+        }
+    });
+    </script>
+</body>
+
+</html>
